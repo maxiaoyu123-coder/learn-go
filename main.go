@@ -5,10 +5,8 @@ import (
 	"fmt"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
-	"log"
 	"os"
 	"path"
-	"strings"
 )
 
 type Cfg struct {
@@ -19,50 +17,6 @@ type Cfg struct {
 }
 
 func main() {
-	cfg := Cfg{
-		StorageAccount: "czcn57r03sa001dt",
-		ContainerName:  "blackduckreport",
-		UseCliAuth:     false,
-		AccountKey:     "yVGY1wm5DbT7dZiR2sRLKZI1KiuPuhk0F5yRyyc66ejgRMrVaSjUFvJe+aU+1WNfgHJgoe15oE6R+AStZDz2Mg==",
-	}
-	ctx := context.Background()
-	//filename := fmt.Sprintf("hello-%s.txt", time.Now().Format("20060102150405"))
-	//file, err := os.Create(filename)
-	//if _, err := file.WriteString("Written by Maxiaoyu"); err != nil {
-	//	log.Fatal(err)
-	//}
-	//err = file.Close()
-	//if err != nil {
-	//	return
-	//}
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
-	//
-	//if err := Upload(ctx, cfg, filename); err != nil {
-	//	log.Fatal(err)
-	//}
-	//
-	//if err := os.Remove(filename); err != nil {
-	//	log.Fatal(err)
-	//}
-	//
-	//if err := Download(ctx, cfg, filename, "./"); err != nil {
-	//	log.Fatal(err)
-	//}
-
-	blobs, err := List(ctx, cfg)
-	if err != nil {
-		log.Fatal(err)
-	}
-	for _, blob := range blobs {
-		if strings.Contains(blob, "hello") {
-			err := DeleteBlob(ctx, cfg, blob)
-			if err != nil {
-				log.Fatal(err)
-			}
-		}
-	}
 
 }
 
